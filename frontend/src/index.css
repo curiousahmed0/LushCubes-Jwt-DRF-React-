@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: sans-serif;
+}
+
+.custom-admin-bg {
+  background-image: url("/src/assets/admin_bg.jpg");
+  background-size: cover;
+}
+
+.custom-login-bg {
+  background-image: url("/src/assets/user_bg.jpg");
+  background-size: cover;
+}
+
+.custom-glass {
+  background: rgba(27, 24, 24, 0.38);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.7px);
+  -webkit-backdrop-filter: blur(5.7px);
+  border: 1px solid rgba(27, 24, 24, 0.48);
+}
+
+.custom-textField {
+  height: 50px;
+  width: 260px;
+  border: 1px solid #0e46a3;
+  border-radius: 50px;
+  padding-left: 20px;
+}
+
+.custom-btn {
+  width: 200px;
+  height: 60px;
+  color: #e1f7f5;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  transition: 0.4s;
+  font-size: 20px;
+}
+
+.custom-btn:hover {
+  width: 240px;
+}
+
+.custom-adminbtn-effect:hover {
+  text-decoration: underline;
+}
