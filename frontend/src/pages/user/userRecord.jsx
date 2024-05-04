@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserRecord = () => {
-  return <div>UserRecord</div>;
+  return <div className="text-lushText">UserRecord</div>;
 };
 
 export default UserRecord;

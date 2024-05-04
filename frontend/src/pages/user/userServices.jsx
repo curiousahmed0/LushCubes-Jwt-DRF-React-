@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserServices = () => {
-  return <div>UserServices</div>;
+  return <div className="text-lushText">UserServices</div>;
 };
 
 export default UserServices;

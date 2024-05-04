@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserCashTally = () => {
-  return <div>UserCashTally</div>;
+  return <div className="text-lushText">UserCashTally</div>;
 };
 
 export default UserCashTally;

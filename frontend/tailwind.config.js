@@ -6,6 +6,7 @@ export default {
       colors: {
         lushText: "#E1F7F5",
         lushPrimary: "#0E46A3",
+        lushSecondary: "#1E0342",
       },
     },
   },

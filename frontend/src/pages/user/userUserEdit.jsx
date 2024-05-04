@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserUserEdit = () => {
-  return <div>UserUserEdit</div>;
+  return <div className="text-lushText">UserUserEdit</div>;
 };
 
 export default UserUserEdit;
