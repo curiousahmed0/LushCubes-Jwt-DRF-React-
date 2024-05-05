@@ -5,11 +5,11 @@ import AdminLoginScreen from "./pages/admin/adminLoginScreen";
 import UserLayout from "./pages/user/userLayout";
 import UserHome from "./pages/user/userHome";
 import UserPatientRegistration from "./pages/user/userPatientRegistration";
-import UserCreateNewPatient from "./pages/user/userCreateNewPatient";
 import UserRecord from "./pages/user/userRecord";
 import UserServices from "./pages/user/userServices";
 import UserCashTally from "./pages/user/userCashTally";
 import UserUserEdit from "./pages/user/userUserEdit";
+import ProtectedRoute from "./components/protected";
 
 const router = createBrowserRouter([
   {
@@ -19,49 +19,61 @@ const router = createBrowserRouter([
   {
     path: "user/home/",
     element: (
-      <UserLayout>
-        <UserHome />
-      </UserLayout>
+      <ProtectedRoute>
+        <UserLayout>
+          <UserHome />
+        </UserLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "user/registration/",
     element: (
-      <UserLayout>
-        <UserPatientRegistration />
-      </UserLayout>
+      <ProtectedRoute>
+        <UserLayout>
+          <UserPatientRegistration />
+        </UserLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "user/record/",
     element: (
-      <UserLayout>
-        <UserRecord />
-      </UserLayout>
+      <ProtectedRoute>
+        <UserLayout>
+          <UserRecord />
+        </UserLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "user/services/",
     element: (
-      <UserLayout>
-        <UserServices />
-      </UserLayout>
+      <ProtectedRoute>
+        <UserLayout>
+          <UserServices />
+        </UserLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "user/cashTally/",
     element: (
-      <UserLayout>
-        <UserCashTally />
-      </UserLayout>
+      <ProtectedRoute>
+        <UserLayout>
+          <UserCashTally />
+        </UserLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "user/editUser/",
     element: (
-      <UserLayout>
-        <UserUserEdit />
-      </UserLayout>
+      <ProtectedRoute>
+        <UserLayout>
+          <UserUserEdit />
+        </UserLayout>
+      </ProtectedRoute>
     ),
   },
   {

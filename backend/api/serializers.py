@@ -60,7 +60,7 @@ class LoginSerializer(serializers.Serializer):
         user = authenticate(username = data['username'],password = data['password'])
 
         if not user:
-             return {"message":"wrong password"}
+             raise serializers.ValidationError("wrong password")
 
 
 

@@ -5,7 +5,7 @@ from patients.views import PatientView
 from lushCubesStats.views import LushCubesStatsView
 from api.views import UserView,LoginView,TokenRefreshView
 from slips.views import SlipsView
-from userStats.views import UserStatsView
+from userStats.views import UserStatsView,U_UserStatsView
 from cashTally.views import CashTallyView
 
 urlpatterns = [
@@ -19,5 +19,11 @@ urlpatterns = [
      path('api/refresh/',TokenRefreshView.as_view()),
      path('api/slips/',SlipsView.as_view()),
      path('api/userStats/',UserStatsView.as_view()),
-     path('api/cashTally/',CashTallyView.as_view())
+     path('api/cashTally/',CashTallyView.as_view()),
+
+#####################################################################
+     path('api/u/userStats/',U_UserStatsView)
+
+
+
 ]

@@ -2,9 +2,15 @@ from rest_framework import status
 from .serializers import UserStatsSerializer,UserStatsModel
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated,IsAdminUser,AllowAny
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
 
 
 class UserStatsView(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
 
     def post(self,request):
@@ -54,3 +60,13 @@ class UserStatsView(APIView):
             print(e)
             return Response({"message":"not found"},status=status.HTTP_400_BAD_REQUEST)
 
+
+@api_view(["GET"])
+def U_UserStatsView(request):
+    try:
+        objs = UserStatsModel.objects.filter( user = request.user)
+        serializer = UserStatsSerializer(objs, many = True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+    except Exception as e:
+        print(e)
+        return Response({"message":"something went wrong"},status=status.HTTP_400_BAD_REQUEST)
