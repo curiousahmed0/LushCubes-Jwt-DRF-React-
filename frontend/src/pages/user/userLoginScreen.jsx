@@ -74,7 +74,7 @@ const UserLoginScreen = () => {
         <p className="text-xl text-lushText mt-6">
           Login as{" "}
           <span
-            className="text-lushPrimary custom-adminbtn-effect"
+            className="text-lushPrimary custom-adminbtn-effect cursor-pointer"
             onClick={() => navigate("admin")}
           >
             admin

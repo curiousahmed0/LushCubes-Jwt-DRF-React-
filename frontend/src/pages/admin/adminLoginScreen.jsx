@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 const AdminLoginScreen = () => {
   const navigate = useNavigate();
 
+  const handleLogin = () => {
+    navigate("/admin/home");
+  };
+
   return (
     <div className="h-screen w-screen flex justify-center items-center custom-admin-bg">
       <div className="w-2/6 h-[440px] custom-glass flex flex-col items-center">
@@ -19,11 +23,16 @@ const AdminLoginScreen = () => {
           className="custom-textField focus:outline-none focus:ring-2 focus:ring-lushPrimary mt-8"
           type="text"
         />
-        <button className="custom-btn bg-lushPrimary mt-8">Login</button>
+        <button
+          onClick={handleLogin}
+          className="custom-btn bg-lushPrimary mt-8"
+        >
+          Login
+        </button>
         <p className="text-xl text-lushText mt-6">
           Login as{" "}
           <span
-            className="text-lushPrimary custom-adminbtn-effect"
+            className="text-lushPrimary custom-adminbtn-effect cursor-pointer"
             onClick={() => navigate("/")}
           >
             User
