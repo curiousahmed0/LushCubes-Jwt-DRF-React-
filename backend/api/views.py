@@ -96,3 +96,15 @@ class TokenRefreshView(APIView):
 def U_get_user(request):
     data = request.user
     return Response({"userId":data.id},status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+def U_U_get_user(request):
+    try:
+        user = request.user.id
+        objs = User.objects.filter(id = user)
+        serializer = UserSerializer(objs, many = True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+    except Exception as e:
+        print(e)
+        return Response({"message":"something went wrong"},status=status.HTTP_400_BAD_REQUEST)
