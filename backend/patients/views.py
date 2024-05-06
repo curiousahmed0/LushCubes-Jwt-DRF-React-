@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,AllowAny
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.decorators import api_view
 
 
 
@@ -61,3 +62,27 @@ class PatientView(APIView):
             print(e)
             return Response({"message":"not found"},status=status.HTTP_400_BAD_REQUEST)
 
+
+
+@api_view(["GET"])
+def U_PatientView(request,pk):
+    try:
+        print(pk)
+        objs = PatientModel.objects.filter(patient_name = pk)
+        serializer = PatientSerializer(objs, many = True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+    except Exception as e:
+        print(e)
+        return Response({"message":"something went wrong"},status=status.HTTP_400_BAD_REQUEST)
+    
+
+@api_view(["GET"])
+def U_U_PatientView(request,pk):
+    try:
+        print(pk)
+        objs = PatientModel.objects.filter(id = pk)
+        serializer = PatientSerializer(objs, many = True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+    except Exception as e:
+        print(e)
+        return Response({"message":"something went wrong"},status=status.HTTP_400_BAD_REQUEST)

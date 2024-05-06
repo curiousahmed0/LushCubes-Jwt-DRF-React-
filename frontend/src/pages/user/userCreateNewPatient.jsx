@@ -1,13 +1,45 @@
 import React, { useState } from "react";
+import api from "../../api";
 
 const UserCreateNewPatient = ({ setShowOld, setShowNew }) => {
   setShowOld(false);
   setShowNew(true);
-  const handleSubmit = (e) => {
+
+  const [name, setName] = useState("");
+  const [age, setAge] = useState(0);
+  const [mbn, setMbn] = useState("");
+  const [cnic, setCnic] = useState("");
+  const [agender, setAgender] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(gender);
-    setShowNew(false);
-    setShowOld(true);
+
+    if (gender === "male") {
+      setAgender(true);
+    } else if (gender === "female") {
+      setAgender(false);
+    } else {
+      console.log("in gender else block");
+    }
+
+    const data = {
+      patient_name: name,
+      patient_age: age,
+      patient_gender: agender,
+      patient_mbn: mbn,
+      patient_cnic: cnic,
+    };
+
+    const res = await api.post("api/patients/", data);
+
+    if (res.status === 201) {
+      console.log(res.data);
+      console.log(res.data.id);
+      setShowNew(false);
+      setShowOld(true);
+    } else {
+      console.log("failed to post patient record");
+    }
   };
   const [gender, setGender] = useState("");
 
@@ -21,21 +53,29 @@ const UserCreateNewPatient = ({ setShowOld, setShowNew }) => {
       >
         <input
           placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           className="custom-textField focus:outline-none focus:ring-2 focus:ring-lushPrimary mt-8"
           type="text"
         />
         <input
           placeholder="Age"
+          value={age}
+          onChange={(e) => setAge(Number(e.target.value))}
           className="custom-textField focus:outline-none focus:ring-2 focus:ring-lushPrimary mt-4"
           type="number"
         />
         <input
           placeholder="Mobile Number"
+          value={mbn}
+          onChange={(e) => setMbn(e.target.value)}
           className="custom-textField focus:outline-none focus:ring-2 focus:ring-lushPrimary mt-4"
           type="text"
         />
         <input
           placeholder="Cnic"
+          value={cnic}
+          onChange={(e) => setCnic(e.target.value)}
           className="custom-textField focus:outline-none focus:ring-2 focus:ring-lushPrimary mt-4"
           type="text"
         />

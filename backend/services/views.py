@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,AllowAny
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.decorators import api_view
 
 
 
@@ -62,3 +63,14 @@ class ServicesView(APIView):
             print(e)
             return Response({"message":"not found or error"},status=status.HTTP_404_NOT_FOUND)
 
+
+
+@api_view(["GET"])
+def U_U_ServicesView(request,pk):
+    try:
+        objs = ServicesModel.objects.filter(id = pk)
+        serializer = ServicesSerializer(objs, many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+    except Exception as e:
+        print(e)
+        return Response({"message":"something went wrong"},status=status.HTTP_400_BAD_REQUEST)

@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,AllowAny
 from rest_framework_simplejwt.authentication import JWTAuthentication
-
+from rest_framework.decorators import api_view
 
 
 class UserView(APIView):
@@ -90,3 +90,9 @@ class TokenRefreshView(APIView):
             print(e)
             return Response({"message":"something went wrong"},status=status.HTTP_400_BAD_REQUEST)
 
+
+
+@api_view(["GET"])
+def U_get_user(request):
+    data = request.user
+    return Response({"userId":data.id},status=status.HTTP_200_OK)
