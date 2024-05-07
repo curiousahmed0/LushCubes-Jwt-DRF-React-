@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api";
+import { useNavigate } from "react-router-dom";
 
 const AdminViewService = () => {
   const [services, setServices] = useState([]);
-
+  const navigate = useNavigate();
   const fetchSrvices = () => {
     api
       .get("api/services/")
@@ -14,6 +15,12 @@ const AdminViewService = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const handleView = (value) => {
+    navigate("/admin/serviceEdit/", {
+      state: value,
+    });
   };
 
   useEffect(() => {
@@ -57,6 +64,14 @@ const AdminViewService = () => {
                   <td className="px-6 py-4">{value.service_name}</td>
                   <td className="px-6 py-4">{value.service_price}</td>
                   <td className="px-6 py-4">{String(value.service_avail)}</td>
+                  <td>
+                    <button
+                      className="px-6 py-4 text-lushPrimary text-xl hover:underline"
+                      onClick={() => handleView(value)}
+                    >
+                      View
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

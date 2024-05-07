@@ -1,7 +1,7 @@
-from services.views import ServicesView,U_U_ServicesView
+from services.views import ServicesView,U_U_ServicesView,A_ServicesView
 from django.contrib import admin
 from django.urls import path,include
-from patients.views import PatientView,U_PatientView,U_U_PatientView
+from patients.views import PatientView,U_PatientView,U_U_PatientView,A_PatientView
 from lushCubesStats.views import LushCubesStatsView
 from api.views import UserView,LoginView,TokenRefreshView,U_get_user,U_U_get_user,A_user
 from slips.views import SlipsView
@@ -30,7 +30,9 @@ urlpatterns = [
      path('api/u/cashTally/',U_CashTallyView),
      path('api/u/getUser/',U_U_get_user),
 #####################################################################
-     path('api/a/user/<int:pk>/',A_user)
+     path('api/a/user/<int:pk>/',A_user),
+     path('api/a/patient/<int:pk>/',A_PatientView),
+     path('api/a/service/<int:pk>/',A_ServicesView)
 
 
 

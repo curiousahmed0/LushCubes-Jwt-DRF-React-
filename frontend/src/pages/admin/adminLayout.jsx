@@ -155,15 +155,6 @@ const AdminLayout = ({ children }) => {
               </h1>
               <img src="/src/assets/view.png" className="w-6 h-6 ml-4" alt="" />
             </button>
-            <button
-              className="w-full h-10 bg-lushSecondary flex flex-row items-center justify-center"
-              onClick={() => navigate("/admin/patientEdit")}
-            >
-              <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32">
-                Delete or Edit
-              </h1>
-              <img src="/src/assets/edit.png" className="w-6 h-6 ml-4" alt="" />
-            </button>
           </div>
         )}
 
@@ -192,15 +183,6 @@ const AdminLayout = ({ children }) => {
                 View All Slips
               </h1>
               <img src="/src/assets/view.png" className="w-6 h-6 ml-4" alt="" />
-            </button>
-            <button
-              className="w-full h-10 bg-lushSecondary flex flex-row items-center justify-center"
-              onClick={() => navigate("/admin/slipEdit")}
-            >
-              <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32">
-                Delete or Edit
-              </h1>
-              <img src="/src/assets/edit.png" className="w-6 h-6 ml-4" alt="" />
             </button>
           </div>
         )}
@@ -272,15 +254,6 @@ const AdminLayout = ({ children }) => {
                 View All Services
               </h1>
               <img src="/src/assets/view.png" className="w-6 h-6 ml-4" alt="" />
-            </button>
-            <button
-              className="w-full h-10 bg-lushSecondary flex flex-row items-center justify-center"
-              onClick={() => navigate("/admin/serviceEdit")}
-            >
-              <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32">
-                Delete or Edit
-              </h1>
-              <img src="/src/assets/edit.png" className="w-6 h-6 ml-4" alt="" />
             </button>
           </div>
         )}

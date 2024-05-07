@@ -86,3 +86,13 @@ def U_U_PatientView(request,pk):
     except Exception as e:
         print(e)
         return Response({"message":"something went wrong"},status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(["DELETE"])
+def A_PatientView(request,pk):
+    try:
+        obj = PatientModel.objects.get(id = pk)
+        obj.delete()
+        return Response({"message":"success"},status=status.HTTP_200_OK)
+    except Exception as e:
+        print(e)
+        return Response({"message":"not found"},status=status.HTTP_400_BAD_REQUEST)

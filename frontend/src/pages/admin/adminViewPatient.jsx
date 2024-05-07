@@ -11,7 +11,6 @@ const AdminViewPatient = () => {
 
     if (res.status === 200) {
       setPatients(res.data);
-      setIsLoading(false);
     } else {
       console.log(res.data);
     }
@@ -22,10 +21,7 @@ const AdminViewPatient = () => {
   }, []);
 
   const handleView = (value) => {
-    // history.push({
-    //   pathname: "/admin/patientEdit",
-    //   state: { value: value },
-    // });
+    navigate("/admin/patientEdit", { state: value });
   };
 
   return (
@@ -76,11 +72,13 @@ const AdminViewPatient = () => {
                   <td className="px-6 py-4">{String(value.patient_gender)}</td>
                   <td className="px-6 py-4">{value.patient_mbn}</td>
                   <td className="px-6 py-4">{value.patient_cnic}</td>
-                  <td
-                    className="px-6 py-4 text-lushPrimary hover:underline text-xl"
-                    onClick={() => handleView(value)}
-                  >
-                    View
+                  <td>
+                    <button
+                      className="px-6 py-4 text-lushPrimary hover:underline text-xl"
+                      onClick={() => handleView(value)}
+                    >
+                      View
+                    </button>
                   </td>
                 </tr>
               ))}
