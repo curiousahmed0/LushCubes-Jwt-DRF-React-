@@ -97,105 +97,131 @@ const router = createBrowserRouter([
   {
     path: "admin/home/",
     element: (
-      <AdminLayout>
-        <AdminHome />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminHome />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/userAdd/",
     element: (
-      <AdminLayout>
-        <AdminAddUser />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminAddUser />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/userView/",
     element: (
-      <AdminLayout>
-        <AdminViewUser />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminViewUser />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/userEdit/",
     element: (
-      <AdminLayout>
-        <AdminEditUser />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminEditUser />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/patientAdd/",
     element: (
-      <AdminLayout>
-        <AdminAddPatient />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminAddPatient />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/patientView/",
     element: (
-      <AdminLayout>
-        <AdminViewPatient />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminViewPatient />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/patientEdit/",
     element: (
-      <AdminLayout>
-        <AdminEditPatient />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminEditPatient />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/slipView/",
     element: (
-      <AdminLayout>
-        <AdminViewSlips />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminViewSlips />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/slipEdit/",
     element: (
-      <AdminLayout>
-        <AdminEditSlips />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminEditSlips />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/cashView/",
     element: (
-      <AdminLayout>
-        <AdminViewCashTallies />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminViewCashTallies />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/serviceAdd/",
     element: (
-      <AdminLayout>
-        <AdminAddService />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminAddService />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/serviceView/",
     element: (
-      <AdminLayout>
-        <AdminViewService />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminViewService />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
   {
     path: "admin/serviceEdit/",
     element: (
-      <AdminLayout>
-        <AdminEditService />
-      </AdminLayout>
+      <ProtectedRoute>
+        <AdminLayout>
+          <AdminEditService />
+        </AdminLayout>
+      </ProtectedRoute>
     ),
   },
 ]);

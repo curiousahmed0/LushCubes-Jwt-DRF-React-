@@ -51,8 +51,8 @@ const AdminLayout = ({ children }) => {
   };
 
   const handleLogout = () => {
-    // localStorage.removeItem(ACCESS_TOKEN);
-    // localStorage.removeItem(REFRESH_TOKEN);
+    localStorage.removeItem(ACCESS_TOKEN);
+    localStorage.removeItem(REFRESH_TOKEN);
     navigate("/admin");
   };
 
@@ -90,7 +90,7 @@ const AdminLayout = ({ children }) => {
                 Add Users
               </h1>
               <img
-                src="/src/assets/user-edit.png"
+                src="/src/assets/add_user.png"
                 className="w-6 h-6 ml-4"
                 alt=""
               />
@@ -102,11 +102,7 @@ const AdminLayout = ({ children }) => {
               <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32">
                 View All Users
               </h1>
-              <img
-                src="/src/assets/user-edit.png"
-                className="w-6 h-6 ml-4"
-                alt=""
-              />
+              <img src="/src/assets/view.png" className="w-6 h-6 ml-4" alt="" />
             </button>
             <button
               className="w-full h-10 bg-lushSecondary flex flex-row items-center justify-center"
@@ -115,11 +111,7 @@ const AdminLayout = ({ children }) => {
               <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32">
                 Delete or Edit
               </h1>
-              <img
-                src="/src/assets/user-edit.png"
-                className="w-6 h-6 ml-4"
-                alt=""
-              />
+              <img src="/src/assets/edit.png" className="w-6 h-6 ml-4" alt="" />
             </button>
           </div>
         )}
@@ -149,7 +141,7 @@ const AdminLayout = ({ children }) => {
                 Add Patients
               </h1>
               <img
-                src="/src/assets/user-edit.png"
+                src="/src/assets/add_user.png"
                 className="w-6 h-6 ml-4"
                 alt=""
               />
@@ -161,11 +153,7 @@ const AdminLayout = ({ children }) => {
               <h1 className="text-lushText font-bold text-sm   hover:text-lg hover:ml-20  ml-32">
                 View All Patients
               </h1>
-              <img
-                src="/src/assets/user-edit.png"
-                className="w-6 h-6 ml-4"
-                alt=""
-              />
+              <img src="/src/assets/view.png" className="w-6 h-6 ml-4" alt="" />
             </button>
             <button
               className="w-full h-10 bg-lushSecondary flex flex-row items-center justify-center"
@@ -174,11 +162,7 @@ const AdminLayout = ({ children }) => {
               <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32">
                 Delete or Edit
               </h1>
-              <img
-                src="/src/assets/user-edit.png"
-                className="w-6 h-6 ml-4"
-                alt=""
-              />
+              <img src="/src/assets/edit.png" className="w-6 h-6 ml-4" alt="" />
             </button>
           </div>
         )}
@@ -207,11 +191,7 @@ const AdminLayout = ({ children }) => {
               <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32">
                 View All Slips
               </h1>
-              <img
-                src="/src/assets/user-edit.png"
-                className="w-6 h-6 ml-4"
-                alt=""
-              />
+              <img src="/src/assets/view.png" className="w-6 h-6 ml-4" alt="" />
             </button>
             <button
               className="w-full h-10 bg-lushSecondary flex flex-row items-center justify-center"
@@ -220,11 +200,7 @@ const AdminLayout = ({ children }) => {
               <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32">
                 Delete or Edit
               </h1>
-              <img
-                src="/src/assets/user-edit.png"
-                className="w-6 h-6 ml-4"
-                alt=""
-              />
+              <img src="/src/assets/edit.png" className="w-6 h-6 ml-4" alt="" />
             </button>
           </div>
         )}
@@ -253,11 +229,7 @@ const AdminLayout = ({ children }) => {
               <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32 hover:ml-20">
                 View CashTallies
               </h1>
-              <img
-                src="/src/assets/user-edit.png"
-                className="w-6 h-6 ml-4"
-                alt=""
-              />
+              <img src="/src/assets/view.png" className="w-6 h-6 ml-4" alt="" />
             </button>
           </div>
         )}
@@ -287,7 +259,7 @@ const AdminLayout = ({ children }) => {
                 Add Services
               </h1>
               <img
-                src="/src/assets/user-edit.png"
+                src="/src/assets/add_user.png"
                 className="w-6 h-6 ml-4"
                 alt=""
               />
@@ -299,11 +271,7 @@ const AdminLayout = ({ children }) => {
               <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32 hover:ml-20">
                 View All Services
               </h1>
-              <img
-                src="/src/assets/user-edit.png"
-                className="w-6 h-6 ml-4"
-                alt=""
-              />
+              <img src="/src/assets/view.png" className="w-6 h-6 ml-4" alt="" />
             </button>
             <button
               className="w-full h-10 bg-lushSecondary flex flex-row items-center justify-center"
@@ -312,11 +280,7 @@ const AdminLayout = ({ children }) => {
               <h1 className="text-lushText font-bold text-sm   hover:text-lg ml-32">
                 Delete or Edit
               </h1>
-              <img
-                src="/src/assets/user-edit.png"
-                className="w-6 h-6 ml-4"
-                alt=""
-              />
+              <img src="/src/assets/edit.png" className="w-6 h-6 ml-4" alt="" />
             </button>
           </div>
         )}
