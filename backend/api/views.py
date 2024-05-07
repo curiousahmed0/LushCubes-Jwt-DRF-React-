@@ -108,3 +108,25 @@ def U_U_get_user(request):
     except Exception as e:
         print(e)
         return Response({"message":"something went wrong"},status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+@api_view(["GET","DELETE"])
+def A_user(request,pk):
+    if request.method == "GET":
+        try:
+            objs = User.objects.filter(id=pk)
+            serializer = UserSerializer(objs, many = True)
+            return Response(serializer.data,status=status.HTTP_200_OK)
+        except Exception as e:
+            print(e)
+            return Response({"message":"something went wrong"},status=status.HTTP_400_BAD_REQUEST)
+    else:
+        try:
+            obj = User.objects.get(id = pk)
+            obj.delete()
+            return Response({"message":"success"},status=status.HTTP_200_OK)
+        except Exception as e:
+            print(e)
+            return Response({"message":"not found"},status=status.HTTP_400_BAD_REQUEST)
+    

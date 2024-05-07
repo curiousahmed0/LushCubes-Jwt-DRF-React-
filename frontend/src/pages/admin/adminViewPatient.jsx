@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api";
+import { useNavigate } from "react-router-dom";
 
 const AdminViewPatient = () => {
   const [patients, setPatients] = useState([]);
+  const navigate = useNavigate();
 
   const handleSeacrh = async () => {
     const res = await api.get("api/patients/");
@@ -19,10 +21,17 @@ const AdminViewPatient = () => {
     handleSeacrh();
   }, []);
 
+  const handleView = (value) => {
+    // history.push({
+    //   pathname: "/admin/patientEdit",
+    //   state: { value: value },
+    // });
+  };
+
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-lushText text-2xl font-bold">Patients View</h1>
-      <div className="h-[550px] w-[700px] mt-20 overflow-y-auto">
+      <div className="h-[550px] w-[900px] mt-20 overflow-y-auto">
         <div className="relative overflow-x-auto">
           <table className="w-full text-sm text-left rtl:text-right text-lushText">
             <thead className="text-xs text-lushText uppercase bg-black">
@@ -45,6 +54,9 @@ const AdminViewPatient = () => {
                 <th scope="col" className="px-6 py-3">
                   Cnic
                 </th>
+                <th scope="col" className="px-6 py-3">
+                  Action
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -64,6 +76,12 @@ const AdminViewPatient = () => {
                   <td className="px-6 py-4">{String(value.patient_gender)}</td>
                   <td className="px-6 py-4">{value.patient_mbn}</td>
                   <td className="px-6 py-4">{value.patient_cnic}</td>
+                  <td
+                    className="px-6 py-4 text-lushPrimary hover:underline text-xl"
+                    onClick={() => handleView(value)}
+                  >
+                    View
+                  </td>
                 </tr>
               ))}
             </tbody>
