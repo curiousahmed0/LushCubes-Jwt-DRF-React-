@@ -42,7 +42,7 @@ const AdminLoginScreen = () => {
         className="w-2/6 h-[440px] custom-glass flex flex-col items-center"
       >
         <h1 className="text-3xl font-bold text-lushText mt-10">
-          LushCubes Admin Login
+          PureMed Admin Login
         </h1>
         <input
           placeholder="Username"

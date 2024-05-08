@@ -18,7 +18,7 @@ const UserLayout = ({ children }) => {
           className="text-lushText text-3xl font-bold mt-12 cursor-pointer"
           onClick={() => navigate("/user/home")}
         >
-          LushCubes
+          PureMed
         </h1>
         <button
           className="w-full h-14 bg-lushSecondary flex flex-row items-center justify-center mt-20"

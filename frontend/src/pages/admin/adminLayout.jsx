@@ -63,7 +63,7 @@ const AdminLayout = ({ children }) => {
           className="text-lushText text-3xl font-bold mt-12 cursor-pointer"
           onClick={() => navigate("/admin/home")}
         >
-          LushCubes
+          PureMed
         </h1>
         <button
           className="w-full h-14 bg-lushPrimary flex flex-row items-center justify-center mt-20"
