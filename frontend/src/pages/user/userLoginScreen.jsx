@@ -43,7 +43,7 @@ const UserLoginScreen = () => {
         onSubmit={handleSubmit}
       >
         <h1 className="text-3xl font-bold text-lushText mt-10">
-          PureMed User Login
+          <span className="text-lushPrimary">PureMed</span> User Login
         </h1>
         <input
           value={username}

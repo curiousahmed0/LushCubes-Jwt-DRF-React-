@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Loader from "../../components/loader";
 import api from "../../api";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminAddUser = () => {
   const [firstName, setFirstName] = useState("");
@@ -56,6 +58,7 @@ const AdminAddUser = () => {
       .catch((err) => {
         console.log(err);
         setInvalid(true);
+        errorNotification();
       });
   };
 
@@ -82,10 +85,37 @@ const AdminAddUser = () => {
         console.log(res222.data);
         setIsLoading(false);
         setInvalid(false);
+        savedNotification();
       })
       .catch((err2) => {
         console.log(err2);
       });
+  };
+
+  const savedNotification = () => {
+    toast.success("User Created Successfully", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const errorNotification = () => {
+    toast.error("Something went Wrong", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (

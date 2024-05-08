@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Loader from "../../components/loader";
 import api from "../../api";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminEditUser = () => {
   const [serachId, setsearchId] = useState("");
@@ -28,11 +30,13 @@ const AdminEditUser = () => {
         console.log(err);
         setNotFound(true);
         setShowForm(false);
+        notFoundNotification();
       });
 
     if (res22.length === 0) {
       setNotFound(true);
       setShowForm(false);
+      notFoundNotification();
     } else {
       setUserId(res22[0].id);
       setFirstName(res22[0].first_name);
@@ -55,6 +59,7 @@ const AdminEditUser = () => {
         EditAdminStats();
         setsearchId("");
         setShowForm(false);
+        SuccessNotification();
       })
       .catch((err) => {
         console.log(err);
@@ -91,7 +96,6 @@ const AdminEditUser = () => {
       id: userId,
       first_name: firstName,
       last_name: lastName,
-      username: username,
       passowrd: password,
       profile: {
         age: age,
@@ -106,12 +110,53 @@ const AdminEditUser = () => {
         console.log(res.data);
         setShowForm(false);
         setIsloading(false);
+        SuccessNotification();
       })
       .catch((err) => {
         console.log(err);
         setInvalid(true);
-        isLoading(false);
+        setIsloading(false);
+        errorNotification();
       });
+  };
+
+  const errorNotification = () => {
+    toast.error("Something went Wrong", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const notFoundNotification = () => {
+    toast.warn("Not Found", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const SuccessNotification = () => {
+    toast.success("Success", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (

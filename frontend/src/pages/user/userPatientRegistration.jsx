@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import UserCreateNewPatient from "./userCreateNewPatient";
 import api from "../../api";
 import Loader from "../../components/loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserPatientRegistration = () => {
   const [showOld, setShowOld] = useState(false);
@@ -61,6 +63,7 @@ const UserPatientRegistration = () => {
         console.log("nothing found");
         setShowInvalid(true);
         setShowServiceSearch(false);
+        NotFoundNotification();
       } else {
         setPname(patientData[0].patient_name);
         console.log(pname);
@@ -83,6 +86,7 @@ const UserPatientRegistration = () => {
         console.log("nothing found");
         setShowInvalid2(true);
         setShowServiceSearchBtn(false);
+        NotFoundNotification();
       } else {
         setSname(serviceData[0].service_name);
         setctSPrice(Number(serviceData[0].service_price));
@@ -189,15 +193,60 @@ const UserPatientRegistration = () => {
         console.log(res.data);
         slipId = res.data.id;
         console.log(slipId);
-        handleCashTally();
-        handleUserStats();
-        handleAdminStats();
-        setIsloading(false);
+        return res.status;
       })
       .catch((err) => {
         console.log(err);
         setIsloading(false);
+        ErrorNotification();
       });
+
+    if (res22 === 201) {
+      handleCashTally();
+      handleUserStats();
+      handleAdminStats();
+      setIsloading(false);
+      savedNotification();
+    }
+  };
+
+  const NotFoundNotification = () => {
+    toast.warn("Nothing Found", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const ErrorNotification = () => {
+    toast.error("Something Went Wrong", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const savedNotification = () => {
+    toast.success("Slip Successfully Saved", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (
@@ -292,6 +341,7 @@ const UserPatientRegistration = () => {
                   alt=""
                 />
               </button>
+
               <button className="custom-search-btn flex flex-row justify-center items-center bg-lushPrimary ml-20">
                 <p className="text-lushText">Print</p>
                 <img

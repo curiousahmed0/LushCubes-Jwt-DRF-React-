@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import api from "../../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserCreateNewPatient = ({ setShowOld, setShowNew }) => {
   setShowOld(false);
@@ -13,19 +15,19 @@ const UserCreateNewPatient = ({ setShowOld, setShowNew }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    let temp = true;
     if (gender === "male") {
       setAgender(true);
     } else if (gender === "female") {
       setAgender(false);
     } else {
-      console.log("in gender else block");
+      temp = true;
     }
 
     const data = {
       patient_name: name,
       patient_age: age,
-      patient_gender: agender,
+      patient_gender: temp,
       patient_mbn: mbn,
       patient_cnic: cnic,
     };
@@ -37,11 +39,25 @@ const UserCreateNewPatient = ({ setShowOld, setShowNew }) => {
       console.log(res.data.id);
       setShowNew(false);
       setShowOld(true);
+      savedNotification();
     } else {
       console.log("failed to post patient record");
     }
   };
   const [gender, setGender] = useState("");
+
+  const savedNotification = () => {
+    toast.success("Patient Created Successfully", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
 
   return (
     <div className="h-full w-full flex flex-col items-center">

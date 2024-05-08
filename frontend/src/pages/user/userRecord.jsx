@@ -6,15 +6,6 @@ const UserRecord = () => {
   const [patients, setPatients] = useState([]);
   const [search, setSearch] = useState("");
   const [isloading, setIsLoading] = useState(false);
-  // const LoadPatients = async () => {
-  //   try {
-  //     const response = await api.get("api/patients/");
-  //     // Set the data in state
-  //     setPatients(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // };
 
   const handleSeacrh = async () => {
     setIsLoading(true);
@@ -28,10 +19,6 @@ const UserRecord = () => {
     }
   };
 
-  // useEffect(() => {
-  //   LoadPatients();
-  // }, []);
-
   return (
     <div className="h-full w-full flex flex-col items-center">
       <h1 className="text-lushText text-2xl font-bold mt-12"> UserRecord</h1>
@@ -42,7 +29,7 @@ const UserRecord = () => {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search id"
+          placeholder="Search Name"
         />
         <button
           className="custom-search-btn flex flex-row justify-center items-center bg-lushPrimary ml-20"

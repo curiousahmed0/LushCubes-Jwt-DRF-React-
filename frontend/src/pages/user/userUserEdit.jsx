@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserUserEdit = () => {
   const [firstName, setFirstName] = useState("");
@@ -43,6 +45,7 @@ const UserUserEdit = () => {
       .then((res) => {
         console.log(res.data);
         setIsvalid(true);
+        savedNotification();
       })
       .catch((err) => {
         console.log(err);
@@ -52,6 +55,19 @@ const UserUserEdit = () => {
   useEffect(() => {
     fetchUserData();
   }, []);
+
+  const savedNotification = () => {
+    toast("Data Updated", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
 
   return (
     <div className="flex flex-col items-center">

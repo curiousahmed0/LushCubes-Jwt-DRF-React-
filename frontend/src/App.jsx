@@ -24,6 +24,7 @@ import AdminViewCashTallies from "./pages/admin/adminViewCashTallies";
 import AdminAddService from "./pages/admin/adminAddService";
 import AdminViewService from "./pages/admin/adminViewService";
 import AdminEditService from "./pages/admin/adminEditService";
+import AdminProtectedRoute from "./components/adminProtected";
 
 const router = createBrowserRouter([
   {
@@ -97,131 +98,131 @@ const router = createBrowserRouter([
   {
     path: "admin/home/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminHome />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/userAdd/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminAddUser />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/userView/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminViewUser />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/userEdit/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminEditUser />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/patientAdd/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminAddPatient />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/patientView/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminViewPatient />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/patientEdit/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminEditPatient />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/slipView/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminViewSlips />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/slipEdit/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminEditSlips />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/cashView/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminViewCashTallies />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/serviceAdd/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminAddService />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/serviceView/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminViewService />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
   {
     path: "admin/serviceEdit/",
     element: (
-      <ProtectedRoute>
+      <AdminProtectedRoute>
         <AdminLayout>
           <AdminEditService />
         </AdminLayout>
-      </ProtectedRoute>
+      </AdminProtectedRoute>
     ),
   },
 ]);

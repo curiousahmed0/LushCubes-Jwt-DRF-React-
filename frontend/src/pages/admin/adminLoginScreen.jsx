@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
+import { ACCESS_TOKEN, ISADMIN, REFRESH_TOKEN } from "../../constants";
 import Loader from "../../components/loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AdminLoginScreen = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -13,6 +15,12 @@ const AdminLoginScreen = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     setIsLoading(true);
+
+    if (username !== "lush" && password !== "6969") {
+      errorNotification();
+      setIsLoading(false);
+      return;
+    }
 
     const data = {
       username: username,
@@ -25,6 +33,7 @@ const AdminLoginScreen = () => {
         console.log(res.data);
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+        localStorage.setItem(ISADMIN, "true");
         navigate("/admin/home");
         setIsLoading(false);
       })
@@ -35,6 +44,32 @@ const AdminLoginScreen = () => {
       });
   };
 
+  const savedNotification = () => {
+    toast.success("Success", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const errorNotification = () => {
+    toast.error("Wrong UserName or Password", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   return (
     <div className="h-screen w-screen flex justify-center items-center custom-admin-bg">
       <form
@@ -42,7 +77,7 @@ const AdminLoginScreen = () => {
         className="w-2/6 h-[440px] custom-glass flex flex-col items-center"
       >
         <h1 className="text-3xl font-bold text-lushText mt-10">
-          PureMed Admin Login
+          <span className="text-lushPrimary">PureMed</span> Admin Login
         </h1>
         <input
           placeholder="Username"
@@ -77,6 +112,18 @@ const AdminLoginScreen = () => {
           </span>
         </p>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };

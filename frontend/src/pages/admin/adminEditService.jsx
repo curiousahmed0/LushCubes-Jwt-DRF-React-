@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import api from "../../api";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminEditService = () => {
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ const AdminEditService = () => {
       .catch((err) => {
         console.log(err);
         setInvalid(true);
+        errorNotification();
       });
   };
 
@@ -50,6 +53,7 @@ const AdminEditService = () => {
         .then((res) => {
           console.log(res.data);
           navigate("/admin/serviceView");
+          savedNotification();
         })
         .catch((err) => console.log(err));
     }
@@ -80,17 +84,44 @@ const AdminEditService = () => {
         console.log(res.data);
         setIsLoading(false);
         navigate("/admin/serviceView");
+        savedNotification();
       })
       .catch((err) => {
         console.log(err);
         setIsLoading(false);
         setInvalid(true);
+        errorNotification();
       });
   };
 
+  const savedNotification = () => {
+    toast.success("Success", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const errorNotification = () => {
+    toast.error("Something went wrong", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-lushText text-2xl font-bold mt-10">Edit Patient</h1>
+      <h1 className="text-lushText text-2xl font-bold mt-10">Edit Service</h1>
       <div className="flex flex-col justify-center items-center mt-16">
         <form
           className="flex flex-col items-center justify-center"

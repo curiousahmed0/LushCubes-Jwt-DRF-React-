@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Loader from "../../components/loader";
 import api from "../../api";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminAddService = () => {
   const [name, setName] = useState("");
@@ -15,8 +17,10 @@ const AdminAddService = () => {
     let temp = true;
     if (avail === "1") {
       temp = true;
-    } else {
+    } else if (avail === "0") {
       temp = false;
+    } else {
+      temp = true;
     }
 
     const data = {
@@ -34,10 +38,12 @@ const AdminAddService = () => {
       .catch((err) => {
         console.log(err);
         setInavlid(true);
+        errorNotification();
       });
 
     if (res22 === 201) {
       EditLushCubesStats();
+      savedNotification();
     }
 
     setIsLoading(false);
@@ -72,6 +78,32 @@ const AdminAddService = () => {
           console.log(err);
         });
     }
+  };
+
+  const savedNotification = () => {
+    toast.success("Success", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const errorNotification = () => {
+    toast.error("Something went wrong", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (

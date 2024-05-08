@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import api from "../../api";
 import Loader from "../../components/loader";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminAddPatient = () => {
   const [name, setName] = useState("");
@@ -38,11 +40,13 @@ const AdminAddPatient = () => {
       .catch((err) => {
         console.log(err);
         setInvalid(true);
+        errorNotification();
       });
 
     console.log(res22);
     if (res22 === 201) {
       EditLushCubesStats();
+      savedNotification();
     }
   };
 
@@ -74,6 +78,32 @@ const AdminAddPatient = () => {
         .catch((err2) => console.log(err2));
     }
     setIsloading(false);
+  };
+
+  const savedNotification = () => {
+    toast.success("Patient Created Successfully", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const errorNotification = () => {
+    toast.error("Something went wrong", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (
