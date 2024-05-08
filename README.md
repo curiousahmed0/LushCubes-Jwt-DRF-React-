@@ -49,7 +49,6 @@ This project is a full-stack web application built using Django REST Framework f
 ### Project Structure
 
 medical-software/
-│
 ├── backend/
 │ ├── users/
 │ ├── patients/
@@ -57,17 +56,11 @@ medical-software/
 │ ├── slips/
 │ ├── cash_tallies/
 │ ├── ...
-│
 ├── frontend/
 │ ├── src/
 │ │ ├── components/
 │ │ ├── pages/
-│ │ ├
 │ │ ├── ...
-│ │
-│ ├
-│ ├
-│
 ├── README.md
 └── ...
 
