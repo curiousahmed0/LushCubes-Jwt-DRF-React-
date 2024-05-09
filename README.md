@@ -1,4 +1,4 @@
-# Medical Software Full-Stack Project
+# PureMed Full-Stack Project
 
 ## Overview
 

@@ -16,7 +16,7 @@ const AdminLoginScreen = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    if (username !== "lush" && password !== "6969") {
+    if (username !== "lush" || password !== "6969") {
       errorNotification();
       setIsLoading(false);
       return;
