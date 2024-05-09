@@ -48,7 +48,7 @@ This project is a full-stack web application built using Django REST Framework f
 
 ### Project Structure
 
-medical-software/
+PureMed/
 ├── backend/
 │ ├── users/
 │ ├── patients/
